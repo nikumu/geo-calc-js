@@ -1,22 +1,42 @@
 const geolib = require('geolib');
 
-// Coordenadas de exemplo
-const pointA = { latitude: -23.55052, longitude: -46.633308 }; // São Paulo, Brasil
-const pointB = { latitude: -22.906847, longitude: -43.172896 }; // Rio de Janeiro, Brasil
+// Coordenadas das cidades brasileiras
+const cities = {
+  'São Paulo': { latitude: -23.55052, longitude: -46.633308 },
+  'Rio de Janeiro': { latitude: -22.906847, longitude: -43.172896 },
+  'Brasília': { latitude: -15.7801, longitude: -47.9292 },
+  'Salvador': { latitude: -12.9714, longitude: -38.5014 },
+  'Fortaleza': { latitude: -3.7172, longitude: -38.5433 },
+  'Belo Horizonte': { latitude: -19.9167, longitude: -43.9345 },
+  'Manaus': { latitude: -3.1190, longitude: -60.0217 },
+  'Curitiba': { latitude: -25.4284, longitude: -49.2733 },
+  'Recife': { latitude: -8.0476, longitude: -34.8770 },
+  'Porto Alegre': { latitude: -30.0346, longitude: -51.2177 },
+};
 
-// Calculando a distância entre dois pontos
-const distance = geolib.getDistance(pointA, pointB);
+// Função para calcular a distância entre duas cidades
+function calculateDistance(city1, city2) {
+  if (!cities[city1] || !cities[city2]) {
+    return "Erro: Por favor, insira nomes de cidades válidas.";
+  }
 
-console.log(`A distância entre São Paulo e Rio de Janeiro é de ${distance / 1000} km.`);
+  const pointA = cities[city1];
+  const pointB = cities[city2];
+  const distance = geolib.getDistance(pointA, pointB);
 
-// Conjunto de coordenadas
-const points = [
-    { latitude: -22.970722, longitude: -43.182365, name: "Copacabana" },
-    { latitude: -23.574658, longitude: -46.623204, name: "Paulista Avenue" },
-    { latitude: -22.913885, longitude: -43.243645, name: "Maracanã" },
-];
+  return `A distância entre ${city1} e ${city2} é de aproximadamente ${(distance / 1000).toFixed(2)} km.`;
+}
 
-// Encontrando o ponto mais próximo de São Paulo
-const closest = geolib.findNearest(pointA, points);
+const readline = require('readline');
 
-console.log(`O ponto mais próximo de São Paulo é: ${closest.name}`);
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
+rl.question('Digite o nome da primeira cidade: ', (city1) => {
+  rl.question('Digite o nome da segunda cidade: ', (city2) => {
+    console.log(calculateDistance(city1, city2));
+    rl.close();
+  });
+});
