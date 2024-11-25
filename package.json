@@ -1,0 +1,15 @@
+{
+  "name": "geo-calc-js",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "nikumu",
+  "license": "MIT",
+  "description": "Exemplo prático de como usar o pacote geolib para realizar cálculos geoespaciais em JavaScript",
+  "dependencies": {
+    "geolib": "^3.3.4"
+  }
+}
