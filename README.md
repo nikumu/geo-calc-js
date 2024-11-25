@@ -19,21 +19,18 @@ Clone o repositório:
 
 ```bash
 bash
-Copy code
 git clone https://github.com/seu-usuario/geolib-example.git
 cd geolib-example
 ```
 Instale as dependências:
 
 ```bash
-Copy code
 npm install
 ```
 
 Execute o programa:
 
 ```bash
-Copy code
 node index.js
 ```
 
