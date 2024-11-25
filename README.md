@@ -15,20 +15,20 @@ Explore um exemplo prático do uso do pacote geolib para cálculos geoespaciais 
 
 ### ⚙️ Como Usar
 
-Clone o repositório:
+1. Clone o repositório:
 
 ```bash
 bash
 git clone https://github.com/seu-usuario/geolib-example.git
 cd geolib-example
 ```
-Instale as dependências:
+2. Instale as dependências:
 
 ```bash
 npm install
 ```
 
-Execute o programa:
+3. Execute o programa:
 
 ```bash
 node index.js
